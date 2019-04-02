@@ -23,6 +23,8 @@ const sessionConfig = {
   // "true" = forces user to accept cookies
 };
 
+// Step 4: Add 'req.session.user' statement to store session data (from express-session)
+
 server.use(helmet());
 server.use(express.json());
 server.use(cors());
