@@ -18,7 +18,7 @@ const sessionConfig = {
     httpOnly: true, // Can JS access the cookie on the browser?
   },
   resave: false, // avoid recreating unchanged session data
-  saveUninitialiazed: false, 
+  saveUninitialized: false, 
   // "false" = does not force users to accept cookies, follows FDPR compliance
   // "true" = forces user to accept cookies
 };
