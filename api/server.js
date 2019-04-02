@@ -8,8 +8,17 @@ const usersRouter = require('../users/users-router.js');
 
 const server = express();
 
+// Step 3: Configure session settings.
 const sessionConfig = {
-
+  name: 'monster',
+  secret: 'keep it secret, keep it safe!',
+  cookie: {
+    maxAge: 1000 * 60 * 10, // => 10 minutes (in milliseconds)
+    secure: false, // Use cookie over https? 'false' during dev, 'true' during production;
+    httpOnly: true, // Can JS access the cookie on the browser?
+    resave: false, // avoid recreating unchanged session data
+    saveUninitialiazed: true, // GDPR compliance, cannot force users to accept cookies
+  }
 };
 
 server.use(helmet());
