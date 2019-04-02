@@ -16,9 +16,11 @@ const sessionConfig = {
     maxAge: 1000 * 60 * 10, // => 10 minutes (in milliseconds)
     secure: false, // Use cookie over https? 'false' during dev, 'true' during production;
     httpOnly: true, // Can JS access the cookie on the browser?
-    resave: false, // avoid recreating unchanged session data
-    saveUninitialiazed: true, // GDPR compliance, cannot force users to accept cookies
-  }
+  },
+  resave: false, // avoid recreating unchanged session data
+  saveUninitialiazed: false, 
+  // "false" = does not force users to accept cookies, follows FDPR compliance
+  // "true" = forces user to accept cookies
 };
 
 server.use(helmet());
