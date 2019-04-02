@@ -41,4 +41,19 @@ router.post('/login', (req, res) => {
     });
 });
 
+router.get('/logout', (req, res) => {
+
+  if (req.session) {
+    req.session.destroy(err => {
+      if (err) {
+        res.status(500).json({ message: "You can checkout any time you like, but you can't leave" })
+;      } else {
+        res.status(200).json({ message: 'Bye, Felicia!' });
+      }
+    })
+  } else {
+    res.status(200).json({ message: 'Bye, Felicia!' });
+  }
+});
+
 module.exports = router;
