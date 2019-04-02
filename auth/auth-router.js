@@ -26,6 +26,7 @@ router.post('/login', (req, res) => {
     .then(user => {
       if (user && bcrypt.compareSync(password, user.password)) {
         // Step 4: Add 'req.session.user = user;' statement to store session data (from express-session)
+        // Step 5: Simplify 'restricted-middleware.js' due to addition of express-session
         req.session.user = user;
 
         res.status(200).json({
